@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying...</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #0ff, #00f);
+            color: #fff;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-shadow: 0 0 10px #fff;
+            animation: glitch 1s infinite;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid #0ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #f00; }
+            50% { text-shadow: -2px -2px #0ff; }
+            100% { text-shadow: 2px 2px #f00; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Verifying...</h1>
+    <div class="spinner"></div>
+
+    <!-- Invisible reCAPTCHA -->
+    <form id="captchaForm">
+        <div class="g-recaptcha" data-sitekey="6Ld5KFwrAAAAAAN-_DfbAgKTY7l2Qe60qBFC5CRK" data-size="invisible" data-callback="onCaptchaSuccess"></div>
+    </form>
+
+    <script>
+        function verifyUser() {
+            grecaptcha.execute(); // Trigger invisible reCAPTCHA
+        }
+
+        function onCaptchaSuccess(token) {
+            console.log("CAPTCHA Verified:", token);
+            setTimeout(() => {
+                window.location.href = "home.html"; // Redirect upon success
+            }, 2000); // Smooth transition delay
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                verifyUser();
+            }, 3000); // Simulated loading delay
+        });
+    </script>
+</body>
+</html>
