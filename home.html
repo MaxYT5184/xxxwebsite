@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXXWebsite-Porn</title>
+    <title>XXXWebsite Porn</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
             margin: 0;
@@ -15,7 +16,6 @@
             font-family: Arial, sans-serif;
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
-            filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +28,8 @@
             position: fixed;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -118,6 +119,24 @@
             border: none;
             font-size: 1rem;
         }
+
+        .owner-pics {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .password-section {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -132,23 +151,23 @@
         
         <div class="video-container">
             <img src="video1-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video1.mp4', 'Title 1')">
-            <div class="video-title">Fucking a pussy.</div>
+            <div class="video-title">Getting fuck by 7 mens!</div>
         </div>
         <div class="video-container">
             <img src="video2-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video2.mp4', 'Title 2')">
-            <div class="video-title">Having sex with my friend.</div>
+            <div class="video-title">Rubbing my dick to my stepsister pussy!</div>
         </div>
         <div class="video-container">
             <img src="video3-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video3.mp4', 'Title 3')">
-            <div class="video-title">How to cum.</div>
+            <div class="video-title">Party Sex!</div>
         </div>
         <div class="video-container">
             <img src="video4-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video4.mp4', 'Title 4')">
-            <div class="video-title">3 Man and 1 girl getting fucked.</div>
+            <div class="video-title">frist teenager having sex.</div>
         </div>
         <div class="video-container">
             <img src="video5-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video5.mp4', 'Title 5')">
-            <div class="video-title">Best Friends having sex for their frist time.</div>
+            <div class="video-title">How to cum!</div>
         </div>
     </div>
 
@@ -156,6 +175,18 @@
         <h2 class="player-title" id="player-title"></h2>
         <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
         <button class="close-btn" onclick="closeVideo()">Close</button>
+    </div>
+
+    <div class="password-section">
+        <h2>Enter Password to View Owner Pics</h2>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button class="btn" onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div class="owner-pics">
+        <h2>Owner Pics</h2>
+        <img src="owner1.jpg" alt="Owner Pic 1">
+        <img src="owner2.jpg" alt="Owner Pic 2">
     </div>
 
     <script>
@@ -179,6 +210,16 @@
             document.querySelector(".video-player").style.display = "none";
             document.getElementById("video-frame").src = "";
             document.getElementById("player-title").innerText = "";
+        }
+
+        function checkPassword() {
+            let password = document.getElementById("password-input").value;
+            if (password === "rosieshoudbemygf") {
+                document.querySelector(".password-section").style.display = "none";
+                document.querySelector(".owner-pics").style.display = "block";
+            } else {
+                alert("Incorrect password!");
+            }
         }
     </script>
 </body>
