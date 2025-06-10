@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXXWebsite-Porn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            transition: filter 0.5s ease-in-out;
+        }
+
+        .age-verification {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .age-verification h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background: #0ff;
+            border: none;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00f;
+        }
+
+        .videos {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-thumbnail {
+            cursor: pointer;
+            width: 200px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .video-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .video-title {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .video-player {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-player iframe {
+            width: 90%;
+            height: 70%;
+        }
+
+        .player-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 10px;
+            cursor: pointer;
+            background: #0ff;
+            border: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="age-verification">
+        <h2>Are you over 18?</h2>
+        <button class="btn" onclick="verifyAge(true)">Yes</button>
+        <button class="btn" onclick="verifyAge(false)">No</button>
+    </div>
+
+    <div class="videos">
+        <h2>Select a Video</h2>
+        
+        <div class="video-container">
+            <img src="video1-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video1.mp4', 'Title 1')">
+            <div class="video-title">Fucking a pussy.</div>
+        </div>
+        <div class="video-container">
+            <img src="video2-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video2.mp4', 'Title 2')">
+            <div class="video-title">Having sex with my friend.</div>
+        </div>
+        <div class="video-container">
+            <img src="video3-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video3.mp4', 'Title 3')">
+            <div class="video-title">How to cum.</div>
+        </div>
+        <div class="video-container">
+            <img src="video4-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video4.mp4', 'Title 4')">
+            <div class="video-title">3 Man and 1 girl getting fucked.</div>
+        </div>
+        <div class="video-container">
+            <img src="video5-thumbnail.jpg" class="video-thumbnail" onclick="openVideo('video5.mp4', 'Title 5')">
+            <div class="video-title">Best Friends having sex for their frist time.</div>
+        </div>
+    </div>
+
+    <div class="video-player">
+        <h2 class="player-title" id="player-title"></h2>
+        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <button class="close-btn" onclick="closeVideo()">Close</button>
+    </div>
+
+    <script>
+        function verifyAge(isOver18) {
+            if (isOver18) {
+                document.querySelector(".age-verification").style.display = "none";
+                document.body.style.filter = "none";
+                document.querySelector(".videos").style.display = "flex";
+            } else {
+                window.close();
+            }
+        }
+
+        function openVideo(videoSrc, title) {
+            document.getElementById("video-frame").src = videoSrc;
+            document.getElementById("player-title").innerText = title;
+            document.querySelector(".video-player").style.display = "flex";
+        }
+
+        function closeVideo() {
+            document.querySelector(".video-player").style.display = "none";
+            document.getElementById("video-frame").src = "";
+            document.getElementById("player-title").innerText = "";
+        }
+    </script>
+</body>
+</html>
